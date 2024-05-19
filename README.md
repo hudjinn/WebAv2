@@ -1,4 +1,4 @@
-![images/logo.png](https://github.com/hudjinn/WebAv2/blob/main/src/main/webapp/resources/images/AlandsonGames.webp)
+<img src="images/logo.png" alt="Logo" width="200"/>
 
 AP2 e APS - Desenvolvimento de Sistemas para Web 2024.1
 A APS vale até 3 pontos e é referente apenas ao código e a AP2 vale até 7 pontos e é referente à
