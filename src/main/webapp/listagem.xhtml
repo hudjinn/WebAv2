@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Listagem de Jogos</title>
+    <link rel="icon" href="#{resource['images/AlandsonGames.webp']}" type="image/webp" />
+    
+</h:head>
+<h:body>
+    <h:graphicImage name="images/AlandsonGames.webp" style="width: 100px" alt="Logo ALANDSON GAMES" />
+
+    <h:form>
+        <p:dataTable var="jogo" value="#{jogosBean.jogosRegistrados}">
+            <p:column headerText="Nome do Jogador" style="#{jogo.resultado eq 'acertou' ? 'background-color:#d4edda;' : ''}">
+                <h:outputText value="#{jogo.nomeJogador}" />
+            </p:column>
+            <p:column headerText="Número Aposta" style="#{jogo.resultado eq 'acertou' ? 'background-color:#d4edda;' : ''}">
+                <h:outputText value="#{jogo.numeroAposta}" />
+            </p:column>
+            <p:column headerText="Número Secreto" style="#{jogo.resultado eq 'acertou' ? 'background-color:#d4edda;' : ''}">
+                <h:outputText value="#{jogo.numeroSecreto}" />
+            </p:column>
+            <p:column headerText="Resultado" style="#{jogo.resultado eq 'acertou' ? 'background-color:#d4edda;' : ''}">
+                <h:outputText value="#{jogo.resultado}" />
+            </p:column>
+            <p:column headerText="Data" style="#{jogo.resultado eq 'acertou' ? 'background-color:#d4edda;' : ''}">
+                <h:outputText value="#{jogo.data}" />
+            </p:column>
+            <p:column>
+                <p:commandButton value="Excluir" action="#{jogosBean.excluir(jogo)}" update="@form" />
+            </p:column>
+        </p:dataTable>        
+    </h:form>
+    <p:commandButton value="Cadastrar Novo Jogo" action="index" style="margin-right:20px;"></p:commandButton>
+   
+</h:body>
+</html>

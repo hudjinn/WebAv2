@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>BEM VINDO AO ALANDSON GAMES</title>
+        <link rel="icon" href="#{resource['images/AlandsonGames.webp']}" type="image/webp" />
+        
+    </h:head>
+    <h:body>
+        <h:graphicImage name="images/AlandsonGames.webp" style="width: 500px" alt="Logo ALANDSON GAMES" />
+        
+        <h:form id="form">
+            <p:panel id="panel" header="Formulário de Cadastro" style="margin-bottom:10px;">
+                <p:messages id="messages" showDetail="true" life="3000" closable="true"/>
+
+                <h:panelGrid columns="3">
+                    <p:outputLabel for="nomeJogador" value="Nome do jogador:" />
+                    <p:inputText id="nomeJogador" value="#{jogosBean.jogo.nomeJogador}" required="true" label="Nome do jogador">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="nomeJogador" />
+
+                    <p:outputLabel for="numeroAposta" value="Escolha um número de 1 a 5" />
+                    <p:inputText id="numeroAposta" value="#{jogosBean.jogo.numeroAposta}" required="true" label="Número Aposta">
+                        <f:validateLongRange minimum="1" maximum="5" />
+                    </p:inputText>
+                    <p:message for="numeroAposta" />
+                </h:panelGrid>
+            </p:panel>
+
+            <p:toolbar>
+                <f:facet name="left">
+                    <p:commandButton value="Salvar" action="#{jogosBean.salvarJogo()}" update="panel" style="margin-right:20px;">
+                        <p:resetInput target="panel" />
+                    </p:commandButton>
+                </f:facet>
+                
+                <f:facet name="right">
+                    <p:commandButton value="Listar Jogos" action="listagem" immediate="true" style="margin-right:20px;"></p:commandButton>
+                </f:facet>
+            </p:toolbar>
+        </h:form>
+    </h:body>
+</html>
